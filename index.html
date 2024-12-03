@@ -30,7 +30,7 @@
     <nav class="fixed w-full z-50 bg-white shadow-md">
         <div class="container mx-auto px-4 py-3 flex justify-between items-center">
             <div class="flex items-center">
-                <img src="/logo.svg" alt="ElectroCharge Logo" class="h-10 mr-4">
+                <img src="images/logo.png" alt="ElectroCharge Logo" class="h-10 mr-4" style="width: 100px; height: auto;">
                 <h1 class="text-2xl font-bold text-blue-600">projectEV</h1>
             </div>
             <div class="flex space-x-6">
@@ -61,7 +61,7 @@
                 </div>
             </div>
             <div class="w-1/2">
-                <img src="/ev-charging.svg" alt="EV Charging" class="w-full animate-float">
+                <img src="images\homeev.jpg" alt="EV Charging" class="w-full animate-float">
             </div>
         </div>
     </header>
@@ -132,55 +132,115 @@
         </div>
     </section>
 
-    <!-- Login Modal -->
-    <div x-show="loginModalOpen" class="fixed inset-0 bg-black bg-opacity-50 z-100 flex items-center justify-center">
-        <div class="bg-white p-8 rounded-lg w-96">
-            <div class="flex justify-between items-center mb-6">
-                <h2 class="text-2xl font-bold">Login</h2>
-                <button @click="closeLoginModal" class="text-gray-500 hover:text-gray-700">
-                    <i class="fas fa-times"></i>
-                </button>
-            </div>
-            <form @submit.prevent="handleLogin">
-                <input type="email" placeholder="Email" x-model="login.email" class="w-full p-3 border rounded-md mb-4">
-                <input type="password" placeholder="Password" x-model="login.password" class="w-full p-3 border rounded-md mb-4">
-                <button type="submit" class="w-full bg-blue-600 text-white p-3 rounded-full hover:bg-blue-700 transition-smooth">
-                    Login
-                </button>
-                <p class="text-center mt-4">
-                    Don't have an account? 
-                    <a href="#" @click.prevent="openRegisterModal" class="text-blue-600 hover:underline">Register</a>
-                </p>
-            </form>
-        </div>
+<!-- About Section -->
+<section id="about" class="bg-gray-100 py-12 px-6">
+    <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-center">
+      <!-- Image on the left -->
+      <div class="md:w-1/2 mb-8 md:mb-0">
+        <img src="images\about.jpg" alt="EV Charging Optimization" class="rounded-lg shadow-lg w-full h-auto">
+      </div>
+      <!-- Text on the right -->
+      <div class="md:w-1/2 md:pl-10">
+        <h2 class="text-4xl font-bold mb-6 text-gray-800">About ProjectEV</h2>
+        <p class="text-gray-700 leading-relaxed mb-4">
+          ProjectEV is designed to revolutionize electric vehicle (EV) charging by optimizing the entire process for efficiency and cost-effectiveness. Our platform helps EV owners locate the most energy-efficient charging stations based on their current battery levels and travel routes.
+        </p>
+        <p class="text-gray-700 leading-relaxed mb-4">
+          Key features include real-time station availability, dynamic pricing suggestions based on off-peak hours, and slot booking functionality to avoid wait times. Our goal is to make EV charging smarter, reducing both costs and environmental impact.
+        </p>
+        <p class="text-gray-700 leading-relaxed">
+          Join us in driving towards a sustainable future, where technology and innovation lead the way in transforming energy management for electric vehicles.
+        </p>
+      </div>
     </div>
+  </section>
+  
+  <!-- Login Modal -->
+<div x-show="loginModalOpen" class="fixed inset-0 bg-black bg-opacity-50 z-100 flex items-center justify-center" x-transition>
+    <div class="bg-white p-8 rounded-lg w-96">
+        <div class="flex justify-between items-center mb-6">
+            <h2 class="text-2xl font-bold">Login</h2>
+            <button @click="closeLoginModal" class="text-gray-500 hover:text-gray-700" aria-label="Close">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <form @submit.prevent="handleLogin">
+            <input type="email" placeholder="Email" x-model="login.email" class="w-full p-3 border rounded-md mb-4" required>
+            <input type="password" placeholder="Password" x-model="login.password" class="w-full p-3 border rounded-md mb-4" required>
+            <button type="submit" class="w-full bg-blue-600 text-white p-3 rounded-full hover:bg-blue-700 transition-smooth">
+                Login
+            </button>
+            <p class="text-center mt-4">
+                Don't have an account? 
+                <a href="#" @click.prevent="openRegisterModal" class="text-blue-600 hover:underline">Register</a>
+            </p>
+        </form>
+    </div>
+</div>
 
-    <!-- Register Modal -->
-    <div x-show="registerModalOpen" class="fixed inset-0 bg-black bg-opacity-50 z-100 flex items-center justify-center">
-        <div class="bg-white p-8 rounded-lg w-96">
-            <div class="flex justify-between items-center mb-6">
-                <h2 class="text-2xl font-bold">Register</h2>
-                <button @click="closeRegisterModal" class="text-gray-500 hover:text-gray-700">
-                    <i class="fas fa-times"></i>
-                </button>
-            </div>
-            <form @submit.prevent="handleRegister">
-                <input type="text" placeholder="Full Name" x-model="register.name" class="w-full p-3 border rounded-md mb-4">
-                <input type="email" placeholder="Email" x-model="register.email" class="w-full p-3 border rounded-md mb-4">
-                <input type="password" placeholder="Password" x-model="register.password" class="w-full p-3 border rounded-md mb-4">
-                <input type="password" placeholder="Confirm Password" x-model="register.confirmPassword" class="w-full p-3 border rounded-md mb-4">
-                <button type="submit" class="w-full bg-blue-600 text-white p-3 rounded-full hover:bg-blue-700 transition-smooth">
-                    Register
-                </button>
-            </form>
+<!-- Register Modal -->
+<div x-show="registerModalOpen" class="fixed inset-0 bg-black bg-opacity-50 z-100 flex items-center justify-center" x-transition>
+    <div class="bg-white p-8 rounded-lg w-96">
+        <div class="flex justify-between items-center mb-6">
+            <h2 class="text-2xl font-bold">Register</h2>
+            <button @click="closeRegisterModal" class="text-gray-500 hover:text-gray-700" aria-label="Close">
+                <i class="fas fa-times"></i>
+            </button>
         </div>
+        <form @submit.prevent="handleRegister">
+            <input type="text" placeholder="Full Name" x-model="register.name" class="w-full p-3 border rounded-md mb-4" required>
+            <input type="email" placeholder="Email" x-model="register.email" class="w-full p-3 border rounded-md mb-4" required>
+            <input type="password" placeholder="Password" x-model="register.password" class="w-full p-3 border rounded-md mb-4" required>
+            <input type="password" placeholder="Confirm Password" x-model="register.confirmPassword" class="w-full p-3 border rounded-md mb-4" required>
+            <button type="submit" class="w-full bg-blue-600 text-white p-3 rounded-full hover:bg-blue-700 transition-smooth">
+                Register
+            </button>
+        </form>
     </div>
+</div>
+
+
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="container mx-auto px-4 grid grid-cols-4 gap-8">
+            <div>
+                <h3 class="text-xl font-bold mb-4">projectEV</h3>
+                <p>Powering the future of electric mobility with convenient and accessible charging solutions.</p>
+            </div>
+            <div>
+                <h4 class="font-semibold mb-4">Quick Links</h4>
+                <ul>
+                    <li><a href="#" class="hover:text-blue-400">Home</a></li>
+                    <li><a href="#" class="hover:text-blue-400">Stations</a></li>
+                    <li><a href="#" class="hover:text-blue-400">Booking</a></li>
+                    <li><a href="#" class="hover:text-blue-400">Contact</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="font-semibold mb-4">Support</h4>
+                <ul>
+                    <li><a href="#" class="hover:text-blue-400">FAQ</a></li>
+                    <li><a href="#" class="hover:text-blue-400">Help Center</a></li>
+                    <li><a href="#" class="hover:text-blue-400">Customer Support</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="font-semibold mb-4">Connect With Us</h4>
+                <div class="flex space-x-4">
+                    <a href="#" class="text-2xl hover:text-blue-400"><i class="fab fa-facebook"></i></a>
+                    <a href="#" class="text-2xl hover:text-blue-400"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="text-2xl hover:text-blue-400"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="text-2xl hover:text-blue-400"><i class="fab fa-linkedin"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
 
     <script>
         function app() {
             return {
                 loginModalOpen: false,
-                registerModalOpen: false,
                 stations: [
                     { id: 1, name: 'Downtown Charging Hub', address: '123 Main St', available_slots: 5 },
                     { id: 2, name: 'Riverside Electric Station', address: '456 River Rd', available_slots: 3 },
@@ -197,25 +257,11 @@
                     email: '',
                     password: ''
                 },
-                register: {
-                    name: '',
-                    email: '',
-                    password: '',
-                    confirmPassword: ''
-                },
                 openLoginModal() {
                     this.loginModalOpen = true;
-                    this.registerModalOpen = false;
                 },
                 closeLoginModal() {
                     this.loginModalOpen = false;
-                },
-                openRegisterModal() {
-                    this.registerModalOpen = true;
-                    this.loginModalOpen = false;
-                },
-                closeRegisterModal() {
-                    this.registerModalOpen = false;
                 },
                 selectStation(station) {
                     this.booking.station = station.id;
@@ -225,21 +271,14 @@
                     window.location.href = '#booking';
                 },
                 bookCharging() {
+                    // Add booking logic
                     alert('Booking submitted! Confirmation details will be sent to your email.');
                 },
                 handleLogin() {
-                    alert('Login functionality to be implemented.');
-                },
-                handleRegister() {
-                    if (this.register.password !== this.register.confirmPassword) {
-                        alert('Passwords do not match!');
-                        return;
-                    }
-                    alert(`Registered successfully! Welcome, ${this.register.name}.`);
-                    this.closeRegisterModal();
-                    this.openLoginModal();
+                    // Add login logic
+                    alert('Login functionality to be implemented');
                 }
-            };
+            }
         }
     </script>
 </body>
