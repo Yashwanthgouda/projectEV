@@ -91,41 +91,26 @@
             </div>
         </div>
     </nav>
-
-      <!-- Hero Section -->
-      <header id="home" class="pt-20 bg-gradient-to-br from-blue-500 to-purple-600 text-white">
-        <div class="container mx-auto px-4 py-16 flex flex-col md:flex-row items-center">
-            <div class="w-full md:w-1/2 text-center md:text-left">
-                <h2 class="text-3xl md:text-4xl font-bold mb-4">Charge Your Electric Vehicle Anywhere</h2>
-                <p class="text-lg md:text-xl mb-6">Discover and book EV charging stations effortlessly, all while
-                    supporting a greener future. Simplify your journey with seamless payment options and join the green
-                    revolution today!</p>
-                <div class="flex justify-center md:justify-start space-x-4">
-                    <a href="chargingSation.html" class="bg-white text-blue-600 px-6 py-3 rounded-full hover:bg-gray-100 transition-smooth">Book a Charging Slot</a>
-                    <button
-                        class="border-2 border-white text-white px-6 py-3 rounded-full hover:bg-white hover:text-blue-600 transition-smooth">
-                        Learn More
-                    </button>
-                </div>
+     <!-- About Section -->
+     <section id="about" class="bg-gray-100 py-12 px-6">
+        <br><br><br><br>
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-center">
+            <!-- Image on the left -->
+            <div class="md:w-1/2 mb-8 md:mb-0">
+                <img src="images\about.jpg" alt="EV Charging Optimization" class="rounded-lg shadow-lg w-full h-auto">
             </div>
-            <div class="w-full md:w-1/2 mt-8 md:mt-0">
-                <img src="/ev-charging.svg" alt="EV Charging" class="w-3/4 mx-auto animate-float">
-            </div>
-        </div>
-    </header>
-
-    <!-- About Section -->
-    <section id="about" class="bg-gray-100 py-12 px-4">
-        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-            <div>
-                <img src="images/about.jpg" alt="EV Charging Optimization" class="rounded-lg shadow-lg w-full h-auto">
-            </div>
-            <div>
-                <h2 class="text-3xl md:text-4xl font-bold mb-6 text-gray-800">About ProjectEV</h2>
+            <!-- Text on the right -->
+            <div class="md:w-1/2 md:pl-10">
+                <h2 class="text-4xl font-bold mb-6 text-gray-800">About ProjectEV</h2>
                 <p class="text-gray-700 leading-relaxed mb-4">
                     ProjectEV is designed to revolutionize electric vehicle (EV) charging by optimizing the entire
                     process for efficiency and cost-effectiveness. Our platform helps EV owners locate the most
                     energy-efficient charging stations based on their current battery levels and travel routes.
+                </p>
+                <p class="text-gray-700 leading-relaxed mb-4">
+                    Key features include real-time station availability, dynamic pricing suggestions based on off-peak
+                    hours, and slot booking functionality to avoid wait times. Our goal is to make EV charging smarter,
+                    reducing both costs and environmental impact.
                 </p>
                 <p class="text-gray-700 leading-relaxed">
                     Join us in driving towards a sustainable future, where technology and innovation lead the way in
@@ -134,6 +119,61 @@
             </div>
         </div>
     </section>
+
+
+
+
+<!-- Login Modal -->
+<div x-show="loginModalOpen" class="fixed inset-0 bg-black bg-opacity-50 z-100 flex items-center justify-center">
+    <div class="bg-white p-8 rounded-lg w-96">
+        <div class="flex justify-between items-center mb-6">
+            <h2 class="text-2xl font-bold">Login</h2>
+            <button @click="closeLoginModal" class="text-gray-500 hover:text-gray-700">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <form @submit.prevent="handleLogin">
+            <input type="email" placeholder="Email" x-model="login.email" class="w-full p-3 border rounded-md mb-4">
+            <input type="password" placeholder="Password" x-model="login.password"
+                class="w-full p-3 border rounded-md mb-4">
+            <button type="submit"
+                class="w-full bg-blue-600 text-white p-3 rounded-full hover:bg-blue-700 transition-smooth">
+                Login
+            </button>
+            <p class="text-center mt-4">
+                Don't have an account?
+                <a href="#" @click.prevent="openRegisterModal" class="text-blue-600 hover:underline">Register</a>
+            </p>
+        </form>
+    </div>
+</div>
+
+<!-- Register Modal -->
+<div x-show="registerModalOpen" class="fixed inset-0 bg-black bg-opacity-50 z-100 flex items-center justify-center">
+    <div class="bg-white p-8 rounded-lg w-96">
+        <div class="flex justify-between items-center mb-6">
+            <h2 class="text-2xl font-bold">Register</h2>
+            <button @click="closeRegisterModal" class="text-gray-500 hover:text-gray-700">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <form @submit.prevent="handleRegister">
+            <input type="text" placeholder="Full Name" x-model="register.name"
+                class="w-full p-3 border rounded-md mb-4">
+            <input type="email" placeholder="Email" x-model="register.email"
+                class="w-full p-3 border rounded-md mb-4">
+            <input type="password" placeholder="Password" x-model="register.password"
+                class="w-full p-3 border rounded-md mb-4">
+            <input type="password" placeholder="Confirm Password" x-model="register.confirmPassword"
+                class="w-full p-3 border rounded-md mb-4">
+            <button type="submit"
+                class="w-full bg-blue-600 text-white p-3 rounded-full hover:bg-blue-700 transition-smooth">
+                Register
+            </button>
+        </form>
+    </div>
+</div>
+
     <!-- Login Modal -->
     <div x-show="loginModalOpen" class="fixed inset-0 bg-black bg-opacity-50 z-100 flex items-center justify-center">
         <div class="bg-white p-8 rounded-lg w-96">
@@ -249,6 +289,32 @@
             };
         }
     </script>
+    <script >     document.addEventListener("alpine:init", () => {
+        Alpine.data("chargingStations", () => ({
+            stations: [
+                { id: 1, name: "Orion Mall", address: "Rajajinagar, Bengaluru", available_slots: 4 },
+                { id: 2, name: "Manyata Tech Park", address: "Nagawara, Bengaluru", available_slots: 6 },
+                { id: 3, name: "HSR Layout Sector 2", address: "HSR Layout, Bengaluru", available_slots: 2 },
+                { id: 4, name: "Forum Mall", address: "Koramangala, Bengaluru", available_slots: 5 },
+                { id: 5, name: "Kempegowda International Airport", address: "Devanahalli, Bengaluru", available_slots: 3 },
+                { id: 6, name: "Lalbagh Botanical Garden", address: "Jayanagar, Bengaluru", available_slots: 7 }
+            ],
+            booking: {
+                station: null,
+                vehicle_type: "",
+                start_time: "",
+                end_time: "",
+                battery_percentage: 50
+            },
+            selectStation(station) {
+                this.booking.station = station.id;
+                alert(`Station Selected: ${station.name}`);
+            },
+            bookCharging() {
+                alert(`Booking confirmed for station ID ${this.booking.station}`);
+            }
+        }));
+    });</script>
 </body>
 
 </html>
