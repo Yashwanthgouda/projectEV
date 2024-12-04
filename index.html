@@ -80,7 +80,7 @@
                 @click.away="mobileMenu = false">
                 <div class="px-4 py-2 space-y-2">
                     <a href="index.html" class="block py-2 px-4 hover:bg-gray-100 rounded-lg transition-smooth">Home</a>
-                    <a href="chargingStation.html" class="block py-2 px-4 hover:bg-gray-100 rounded-lg transition-smooth">Bookings</a>
+                    <a href="chargingSation.html" class="block py-2 px-4 hover:bg-gray-100 rounded-lg transition-smooth">Bookings</a>
                     <a href="Maps/maps.html" class="block py-2 px-4 hover:bg-gray-100 rounded-lg transition-smooth">Map</a>
                     <a href="about us.html" class="block py-2 px-4 hover:bg-gray-100 rounded-lg transition-smooth">About</a>
                     <button @click="openLoginModal" 
@@ -109,7 +109,7 @@
                 </div>
             </div>
             <div class="w-full md:w-1/2 mt-8 md:mt-0">
-                <img src="/ev-charging.svg" alt="EV Charging" class="w-3/4 mx-auto animate-float">
+                <img src="images\home.jpg" alt="EV Charging" style="border-radius: 5px;" class="w-3/4 mx-auto animate-float">
             </div>
         </div>
     </header>
@@ -222,33 +222,6 @@
     </footer>
 
     <script src="mainscript.js"></script>
-    <script>
-        function app() {
-            return {
-                mobileMenu: false,
-                loginModalOpen: false,
-                registerModalOpen: false,
-                toggleMobileMenu() {
-                    this.mobileMenu = !this.mobileMenu;
-                },
-                openLoginModal() {
-                    this.loginModalOpen = true;
-                    this.mobileMenu = false; // Close mobile menu when opening login
-                },
-                closeLoginModal() {
-                    this.loginModalOpen = false;
-                },
-                openRegisterModal() {
-                    this.loginModalOpen = false;
-                    this.registerModalOpen = true;
-                    this.mobileMenu = false; // Close mobile menu when opening register
-                },
-                closeRegisterModal() {
-                    this.registerModalOpen = false;
-                }
-            };
-        }
-    </script>
 </body>
 
 </html>

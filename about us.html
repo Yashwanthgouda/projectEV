@@ -80,7 +80,7 @@
                 @click.away="mobileMenu = false">
                 <div class="px-4 py-2 space-y-2">
                     <a href="index.html" class="block py-2 px-4 hover:bg-gray-100 rounded-lg transition-smooth">Home</a>
-                    <a href="chargingStation.html" class="block py-2 px-4 hover:bg-gray-100 rounded-lg transition-smooth">Bookings</a>
+                    <a href="chargingSation.html" class="block py-2 px-4 hover:bg-gray-100 rounded-lg transition-smooth">Bookings</a>
                     <a href="Maps/maps.html" class="block py-2 px-4 hover:bg-gray-100 rounded-lg transition-smooth">Map</a>
                     <a href="about us.html" class="block py-2 px-4 hover:bg-gray-100 rounded-lg transition-smooth">About</a>
                     <button @click="openLoginModal" 
@@ -262,59 +262,6 @@
     </footer>
 
     <script src="mainscript.js"></script>
-    <script>
-        function app() {
-            return {
-                mobileMenu: false,
-                loginModalOpen: false,
-                registerModalOpen: false,
-                toggleMobileMenu() {
-                    this.mobileMenu = !this.mobileMenu;
-                },
-                openLoginModal() {
-                    this.loginModalOpen = true;
-                    this.mobileMenu = false; // Close mobile menu when opening login
-                },
-                closeLoginModal() {
-                    this.loginModalOpen = false;
-                },
-                openRegisterModal() {
-                    this.loginModalOpen = false;
-                    this.registerModalOpen = true;
-                    this.mobileMenu = false; // Close mobile menu when opening register
-                },
-                closeRegisterModal() {
-                    this.registerModalOpen = false;
-                }
-            };
-        }
-    </script>
-    <script >     document.addEventListener("alpine:init", () => {
-        Alpine.data("chargingStations", () => ({
-            stations: [
-                { id: 1, name: "Orion Mall", address: "Rajajinagar, Bengaluru", available_slots: 4 },
-                { id: 2, name: "Manyata Tech Park", address: "Nagawara, Bengaluru", available_slots: 6 },
-                { id: 3, name: "HSR Layout Sector 2", address: "HSR Layout, Bengaluru", available_slots: 2 },
-                { id: 4, name: "Forum Mall", address: "Koramangala, Bengaluru", available_slots: 5 },
-                { id: 5, name: "Kempegowda International Airport", address: "Devanahalli, Bengaluru", available_slots: 3 },
-                { id: 6, name: "Lalbagh Botanical Garden", address: "Jayanagar, Bengaluru", available_slots: 7 }
-            ],
-            booking: {
-                station: null,
-                vehicle_type: "",
-                start_time: "",
-                end_time: "",
-                battery_percentage: 50
-            },
-            selectStation(station) {
-                this.booking.station = station.id;
-                alert(`Station Selected: ${station.name}`);
-            },
-            bookCharging() {
-                alert(`Booking confirmed for station ID ${this.booking.station}`);
-            }
-        }));
-    });</script>
 </body>
 
 </html>
